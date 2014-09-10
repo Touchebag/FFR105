@@ -1,16 +1,8 @@
-% Generates a polynomial based on a vector
-function polynomial = Polynomial(inVector)
+% Evaluates a polynomial from a vector
+function value = Polynomial(x, inVector)
 
-  f = fliplr(inVector)
+  % Matlab uses descending order of coefficients instead
+  polynomial = fliplr(inVector);
 
-  % Variables
-  f(x) = 0;
-  vectorLength = length(inVector);
+  value = polyval(polynomial, x);
 
-  if vectorLength < 2 then
-    disp('Error: Polynomial must be second order derivable')
-  else
-    for i = 1:length(inVector)
-      f(x) = f(x) + inVector(i) * x ^ (i - 1);
-    end_for
-  end_if
