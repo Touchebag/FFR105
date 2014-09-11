@@ -1,11 +1,16 @@
 % Returns the specified order derviative of a polynomial
 function derivative = PolynomialDifferentiation(inVector, diffOrder)
 
-  % Matlab still uses descending order
-  temp = fliplr(inVector);
+  % If "zeroeth order" derivative, do nothing
+  if (diffOrder == 0)
+    derivative = inVector
+  else
+    % Matlab still uses descending order
+    polynomial = fliplr(inVector);
 
-  for i=1:diffOrder
-    temp = polyder(temp);
+    for i = 1:diffOrder
+      polynomial = polyder(polynomial);
+    end
+
+    derivative = fliplr(polynomial);
   end
-
-  derivative = fliplr(temp);
