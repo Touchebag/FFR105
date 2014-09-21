@@ -1,3 +1,5 @@
+% Robin Touche  900610-3270  robint@student.chalmers.se
+
 % Returns the specified order derviative of a polynomial
 function derivative = PolynomialDifferentiation(inVector, diffOrder)
 

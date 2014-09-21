@@ -1,3 +1,5 @@
+% Robin Touche  900610-3270  robint@student.chalmers.se
+
 % Takes a polynomial and a vector of iteratino values and plots them
 function Plotiterations(polynomial, values)
 

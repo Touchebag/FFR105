@@ -1,3 +1,5 @@
+% Robin Touche  900610-3270  robint@student.chalmers.se
+
 % Uses the NewtonRaphson method to calculate a min value of a polynomial function
 function values = NewtonRaphson(polynomial, start, tolerance)
 

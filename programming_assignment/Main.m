@@ -1,3 +1,6 @@
+% Robin Touche  900610-3270  robint@student.chalmers.se
+
+% Main function as specified in pdf
 function Main()
   polynomialCoefficients = [10 -2 -1 1]; % Defines the polynomial 10 - 2x - x^2 + x^3
   startingPoint = 2;
