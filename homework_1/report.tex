@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{mathtools}
+
+\pagestyle{fancy}
+
+\lhead{Robin Touche 900610-3270}
+\rhead{robint@student.chalmers.se}
+
+\begin{document}
+\section{Home problem 1}
+\subsection{}
+\subsubsection{}
+
+\begin{align*}
+  &f_\mathit{p}(\mathbf{x}, \mu) = \\
+  &f(\mathbf{x}) + \mu \cdot max \left( g(\mathbf{x}), 0 \right(  = \\
+  &(x_1 - 1)^2 + 2(x_2 - 2)^2 + \mu \cdot max \left( (x_1^2 + x_2^2 - 1 ), 0 \right)
+\end{align*}
+
+\subsubsection{}
+
+\begin{align*}
+  & \bigtriangledown f_\mathit{p}(\mathbf{x}, \mu) =
+  \begin{cases}
+    \frac{\partial f}{\partial x_1}f_\mathit{p}(\mathbf{x}, \mu) + \frac{\partial f}{\partial x_2}f_\mathit{p}(\mathbf{x}, \mu) + \frac{\partial f}{\partial \mu}f_\mathit{p}(\mathbf{x}, \mu) &,g(\mathbf{x}) > 0 \\
+    \frac{\partial f}{\partial x_1}f(\mathbf{x}) + \frac{\partial f}{\partial x_2}f(\mathbf{x}) &, g(\mathbf{x}) \leq 0 \\
+  \end{cases}
+\end{align*}
+
+\subsection{}
+
+\subsection{}
+
+\end{document}
