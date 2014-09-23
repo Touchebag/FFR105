@@ -20,11 +20,22 @@
 
 \subsubsection{}
 
+Since the penalty term from the previous problem depends on whether
+$g(\mathbf{x}) > 0$ or not we end up with two different cases.
+
 \begin{align*}
-  & \bigtriangledown f_\mathit{p}(\mathbf{x}, \mu) =
+  & \nabla f_\mathit{p}(\mathbf{x}, \mu) =
   \begin{cases}
-    \frac{\partial f}{\partial x_1}f_\mathit{p}(\mathbf{x}, \mu) + \frac{\partial f}{\partial x_2}f_\mathit{p}(\mathbf{x}, \mu) + \frac{\partial f}{\partial \mu}f_\mathit{p}(\mathbf{x}, \mu) &,g(\mathbf{x}) > 0 \\
-    \frac{\partial f}{\partial x_1}f(\mathbf{x}) + \frac{\partial f}{\partial x_2}f(\mathbf{x}) &, g(\mathbf{x}) \leq 0 \\
+    \frac{\partial f}{\partial x_1}f_\mathit{p}(\mathbf{x}, \mu) \hat{i} +
+    \frac{\partial f}{\partial x_2}f_\mathit{p}(\mathbf{x}, \mu) \hat{j} +
+    \frac{\partial f}{\partial \mu}f_\mathit{p}(\mathbf{x}, \mu) \hat{k} &,g(\mathbf{x}) > 0 \\
+    \frac{\partial f}{\partial x_1}f(\mathbf{x}) \hat{i} +
+    \frac{\partial f}{\partial x_2}f(\mathbf{x}) \hat{j} &,g(\mathbf{x}) \leq 0 \\
+  \end{cases} \\
+  & =
+  \begin{cases}
+    (2 (x z+x-1)) \hat{i} + (2 y (z + 2) - 8) \hat{j} + (x^2 + y^2 - 1) \hat{k} &,g(\mathbf{x}) > 0 \\
+    (2 (x - 1)) \hat{i} + (2 (y - 4)) \hat{j} &,g(\mathbf{x}) \leq 0
   \end{cases}
 \end{align*}
 
