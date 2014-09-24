@@ -14,8 +14,8 @@
 \subsubsection{}
 
 \begin{align*}
-  &f_\mathit{p}(\mathbf{x}, \mu) = f(\mathbf{x}) + \mu \cdot max \left( g(\mathbf{x}), 0 \right(  = \\
-  &(x_1 - 1)^2 + 2(x_2 - 2)^2 + \mu \cdot max \left( (x_1^2 + x_2^2 - 1 ), 0 \right)
+  &f_\mathit{p}(\mathbf{x}, \mu) = f(\mathbf{x}) + \mu \cdot max \left[ g(\mathbf{x}), 0 \right]  = \\
+  &(x_1 - 1)^2 + 2(x_2 - 2)^2 + \mu \cdot max \left[ (x_1^2 + x_2^2 - 1 ), 0 \right]
 \end{align*}
 
 \subsubsection{}
@@ -40,6 +40,82 @@ $g(\mathbf{x}) > 0$ or not we end up with two different cases.
 \end{align*}
 
 \subsection{}
+\subsubsection{}
+
+First we take calculate the partial derivatives of the function.
+
+\begin{align*}
+  \begin{cases}
+    f'_{x_1}(\mathbf{x}) = 8 (x_1 - x_2) \\
+    f'_{x_2}(\mathbf{x}) = - x_1 + 8 x_2 - 6
+  \end{cases}
+\end{align*}
+Setting both to $0$ and solving gives us a stationary point of:
+
+\begin{align*}
+  \begin{cases}
+    8 (x_1 - x_2)     = 0 \\
+    - x_1 + 8 x_2 - 6 = 0
+  \end{cases}
+  \Rightarrow f\left(\frac{3}{31}, \frac{24}{31} \right) = -2.2851
+\end{align*}
+Next we try the three edges where $x_2 = 1$ , $ x_1 = 0$ and $ x_1 = x_2$.
+
+\begin{align*}
+  \begin{cases}
+    f'(x_1, 1)   &= 8 (x_1 - 1) \\
+    f'(0, x_2)   &= 8 x_2 - 6 \\
+    f'(x_1, x_1) &= 7 x^2 - 6x
+  \end{cases}
+  \Rightarrow
+  \begin{cases}
+    8 (x_1 - 1) &= 0 \\
+    8 x_2 - 6   &= 0 \\
+    7 x^2 - 6x  &= 0
+  \end{cases}
+  \Rightarrow
+  \begin{cases}
+    f'\left(\frac{1}{8}, 1 \right)           &= -2.0625 \\
+    f'\left(0, \frac{3}{4} \right)           &= -2.25   \\
+    f'\left(\frac{3}{7}, \frac{3}{7} \right) &= -1.2857
+  \end{cases}
+\end{align*}
+Finally we have to test the three corners.
+
+\begin{align*}
+  \begin{cases}
+    f(0,0) &= 0 \\
+    f(0,1) &= 1 \\
+    f(1,1) &= -2
+  \end{cases}
+\end{align*}
+We're looking for a minimum so the answer is the point $\left(\frac{3}{31}, \frac{24}{31} \right)$.
+
+\subsubsection{}
+
+\begin{align*}
+  \begin{cases}
+    f(\mathbf{x}) &= 15 + 2x_1  3y \\
+    h(\mathbf{x}) &= x_1^2 + x_1y_2 + y_2^2 - 21 = 0
+  \end{cases}
+  \Rightarrow
+  L(\mathbf{x}, \lambda) = f(\mathbf{x}) + \lambda h(\mathbf{x})
+\end{align*}
+We calculate the partial derviatives of $L$ and set them to $0$ to get the solutions:
+
+\begin{align*}
+  \begin{cases}
+    L'_{x_1} = 2 + \lambda (2x_1 + x_2) &= 0 \\
+    L'_{x_2} = 3 + \lambda (x_1 + 2x_2) &= 0 \\
+    L'_{\lambda} = x_1^2 + x_1 x_2 + x_2^2 - 21 &= 0
+  \end{cases}
+  \Rightarrow
+  \begin{cases}
+    f(1, 4) &= 29 \\
+    f(-1, -4) &= 1 \\
+  \end{cases}
+\end{align*}
+The point $(-1, -4)$ gives us the minimum of $1$.
 
 \subsection{}
 
