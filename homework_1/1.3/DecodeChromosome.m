@@ -1,6 +1,4 @@
 % Takes a chromosome (as a vector) and returns a vector of variables of a given length
-
-% TODO check 3.9 in course book
 function variables = DecodeChromosome(chromosome, numberOfVariables, variableRange)
 
   % Initialise the outvector
@@ -14,23 +12,18 @@ function variables = DecodeChromosome(chromosome, numberOfVariables, variableRan
   end
 
   i         = 0;
-  nextBit   = 0;
-  var       = [];
+  var       = 0.0;
   variables = [];
 
-  while i < chromLength
+  for i = 1:numberOfVariables
     for j = 1:variableLength
-      i = i + 1;
-
-      nextBit = chromosome(i);
-
-      var = [var nextBit];
+      var = var + chromosome(i + j) * 2^(-j);
     end
 
-    temp = bi2de(var);
+    var = -variableRange + 2 * variableRange * var / (1 - 2^(-variableLength))
 
-    variables = [variables temp];
-    var = [];
+    variables = [variables var];
+    var = 0.0;
   end
 end
 
