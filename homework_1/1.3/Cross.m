@@ -13,7 +13,7 @@ function newChromosomes = Cross(chrom1, chrom2)
   newChromosomes = zeros(2, length1);
 
   % Select crossover point
-  crossover = randi([1 length1])
+  crossover = randi([1 length1]);
 
   for i = 1:length1
     if i < crossover

@@ -2,9 +2,7 @@
 function fitness = EvaluateIndividual(variables)
 
   % Note: Hardcoded for problem 1.3b (i.e unreadable)
-    function temp = g(invec)
-      temp = (1 + (invec(1) + invec(2) + 1)^2 * (19 - 14*invec(1) + 3*invec(1)^2 - 14*invec(2) + 6*invec(1)*invec(2) + 3*invec(2)^2) ) * (30 + (2*invec(1) - 3*invec(2))^2*(18 - 32*invec(1) + 12*invec(1)^2 + 48*invec(2) - 36*invec(1)*invec(2) + 27*invec(2)^2));
-    end
+    g = (1 + (variables(1) + variables(2) + 1)^2 * (19 - 14*variables(1) + 3*variables(1)^2 - 14*variables(2) + 6*variables(1)*variables(2) + 3*variables(2)^2) ) * (30 + (2*variables(1) - 3*variables(2))^2*(18 - 32*variables(1) + 12*variables(1)^2 + 48*variables(2) - 36*variables(1)*variables(2) + 27*variables(2)^2));
 
-  fitness = 1 / g(variables);
+  fitness = 1 / g;
 end

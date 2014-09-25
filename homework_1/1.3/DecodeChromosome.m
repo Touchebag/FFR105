@@ -20,10 +20,11 @@ function variables = DecodeChromosome(chromosome, numberOfVariables, variableRan
       var = var + chromosome(i + j) * 2^(-j);
     end
 
-    var = -variableRange + 2 * variableRange * var / (1 - 2^(-variableLength))
+    var = -variableRange + 2 * variableRange * var / (1 - 2^(-variableLength));
 
-    variables = [variables var];
+    variables = [variables var]
     var = 0.0;
   end
+
 end
 
