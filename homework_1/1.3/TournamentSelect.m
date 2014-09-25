@@ -21,14 +21,14 @@ function index = TournamentSelection(population, selectionParamater, size)
   sortedFitness = sortrows(selected);
   sortedFitness = flipud(sortedFitness);
 
+  % Default to worst individual
+  index = sortedFitness(size, 2);
+
   for i = 1:size
     r = rand;
 
-    % This is outside of the if statement to ensure that
-    % we always return a valid index (defaults to the worst)
-    index = sortedFitness(i, 2);
-
     if r < selectionParamater
+      index = sortedFitness(i, 2);
       break;
     end
   end
