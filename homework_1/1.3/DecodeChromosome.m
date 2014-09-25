@@ -1,4 +1,4 @@
-% Takes a chromosome (as a vector) and returns a vector of variables of a given length
+% Takes a chromosome (as a vector) and returns a vector of variables within a given range
 function variables = DecodeChromosome(chromosome, numberOfVariables, variableRange)
 
   % Initialise the outvector

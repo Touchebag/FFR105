@@ -15,7 +15,6 @@ function newChromosomes = Cross(chrom1, chrom2)
   % Select crussover point
   crossover = randi([1 length1])
 
-  % TODO Should no crossover be possible?
   for i = 1:length1
     if i < crossover
       newChromosomes(1, i) = chrom1(i);
