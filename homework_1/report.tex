@@ -14,7 +14,7 @@
 \subsubsection{}
 
 \begin{align*}
-  &f_\mathit{p}(\mathbf{x}, \mu) = f(\mathbf{x}) + \mu \cdot max \left[ g(\mathbf{x}), 0 \right]  = \\
+  &f_\mathit{p}(\mathbf{x}; \mu) = f(\mathbf{x}) + \mu \cdot max \left[ g(\mathbf{x}), 0 \right]  = \\
   &(x_1 - 1)^2 + 2(x_2 - 2)^2 + \mu \cdot max \left[ (x_1^2 + x_2^2 - 1 ), 0 \right]
 \end{align*}
 
@@ -24,18 +24,17 @@ Since the penalty term from the previous problem depends on whether
 $g(\mathbf{x}) > 0$ or not we end up with two different cases.
 
 \begin{align*}
-  & \nabla f_\mathit{p}(\mathbf{x}, \mu) =
+  & \nabla f_\mathit{p}(\mathbf{x}; \mu) =
   \begin{cases}
-    \frac{\partial f}{\partial x_1}f_\mathit{p}(\mathbf{x}, \mu) \hat{i} +
-    \frac{\partial f}{\partial x_2}f_\mathit{p}(\mathbf{x}, \mu) \hat{j} +
-    \frac{\partial f}{\partial \mu}f_\mathit{p}(\mathbf{x}, \mu) \hat{k} &,g(\mathbf{x}) > 0 \\
+    \frac{\partial f}{\partial x_1}f_\mathit{p}(\mathbf{x}; \mu) \hat{i} +
+    \frac{\partial f}{\partial x_2}f_\mathit{p}(\mathbf{x}; \mu) \hat{j} &,g(\mathbf{x}) > 0 \\
     \frac{\partial f}{\partial x_1}f(\mathbf{x}) \hat{i} +
     \frac{\partial f}{\partial x_2}f(\mathbf{x}) \hat{j} &,g(\mathbf{x}) \leq 0 \\
   \end{cases} \\
   & =
   \begin{cases}
-    (2 (x z+x-1)) \hat{i} + (2 y (z + 2) - 8) \hat{j} + (x^2 + y^2 - 1) \hat{k} &,g(\mathbf{x}) > 0 \\
-    (2 (x - 1)) \hat{i} + (2 (y - 4)) \hat{j} &,g(\mathbf{x}) \leq 0
+    ((2\mu + 2)x_1 - 2) \hat{i} + (2(\mu + 2)x_2 - 8) \hat{j} &,g(\mathbf{x}) > 0 \\
+    (2 (x_1 - 1)) \hat{i} + (2 (x_2 - 4)) \hat{j} &,g(\mathbf{x}) \leq 0
   \end{cases}
 \end{align*}
 
@@ -118,5 +117,12 @@ We calculate the partial derviatives of $L$ and set them to $0$ to get the solut
 The point $(-1, -4)$ gives us the minimum of $1$.
 
 \subsection{}
+\subsubsection{}
+
+See enclosed files.
+
+\subsubsection{}
+
+
 
 \end{document}
