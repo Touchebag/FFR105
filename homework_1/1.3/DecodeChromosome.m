@@ -13,16 +13,19 @@ function variables = DecodeChromosome(chromosome, numberOfVariables, variableRan
 
   i         = 0;
   var       = 0.0;
-  variables = [];
+  offest    = 0;
+  variables = zeros(numberOfVariables, 1);
 
   for i = 1:numberOfVariables
+    offset = ((i - 1) * variableLength)
+
     for j = 1:variableLength
-      var = var + chromosome(i + j) * 2^(-j);
+      var = var + chromosome(offset + j) * 2^(-j);
     end
 
     var = -variableRange + 2 * variableRange * var / (1 - 2^(-variableLength));
 
-    variables = [variables var]
+    variables(i) = var;
     var = 0.0;
   end
 
