@@ -4,6 +4,7 @@
   numberOfGenes                 = 50;
   crossoverProbability          = 0.8;
   mutationProbability           = 0.025;
+  tournamentSize                = 2;
   tournamentSelectionParamenter = 0.75;
   variableRange                 = 5.0;
   numberOfGenerations           = 100;
@@ -53,8 +54,8 @@
     tempPopulation = population;
 
     for i = 1:2:populationSize
-      i1 = TournamentSelect(fitness, tournamentSelectionParamenter, 2);
-      i2 = TournamentSelect(fitness, tournamentSelectionParamenter, 2);
+      i1 = TournamentSelect(fitness, tournamentSelectionParamenter, tournamentSize);
+      i2 = TournamentSelect(fitness, tournamentSelectionParamenter, tournamentSize);
       chromosome1 = population(i1,:);
       chromosome2 = population(i2,:);
 
@@ -83,4 +84,8 @@
     drawnow;
   end
 
+  disp('Minimum value');
+  disp(1 / maximumFitness);
+  disp('X1*, x2*');
+  disp(sprintf('%f, %f', bestIndividual(1), bestIndividual(2)));
 
