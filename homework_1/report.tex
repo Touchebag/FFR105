@@ -15,7 +15,7 @@
 
 \begin{align*}
   &f_\mathit{p}(\mathbf{x}; \mu) = f(\mathbf{x}) + \mu \cdot max \left[ g(\mathbf{x}), 0 \right]  = \\
-  &(x_1 - 1)^2 + 2(x_2 - 2)^2 + \mu \cdot max \left[ (x_1^2 + x_2^2 - 1 ), 0 \right]
+  &(x_1 - 1)^2 + 2(x_2 - 2)^2 + \mu \cdot max \left[ (x_1^2 + x_2^2 - 1 ), 0 \right]^2
 \end{align*}
 
 \subsubsection{}
@@ -26,22 +26,51 @@ $g(\mathbf{x}) > 0$ or not we end up with two different cases.
 \begin{align*}
   & \nabla f_\mathit{p}(\mathbf{x}; \mu) =
   \begin{cases}
-    \frac{\partial f}{\partial x_1}f_\mathit{p}(\mathbf{x}; \mu) \hat{i} +
-    \frac{\partial f}{\partial x_2}f_\mathit{p}(\mathbf{x}; \mu) \hat{j} &,g(\mathbf{x}) > 0 \\
-    \frac{\partial f}{\partial x_1}f(\mathbf{x}) \hat{i} +
-    \frac{\partial f}{\partial x_2}f(\mathbf{x}) \hat{j} &,g(\mathbf{x}) \leq 0 \\
+    \frac{\partial}{\partial x_1}f_\mathit{p}(\mathbf{x}; \mu) \hat{i} +
+    \frac{\partial}{\partial x_2}f_\mathit{p}(\mathbf{x}; \mu) \hat{j} &,g(\mathbf{x}) > 0 \\
+    \frac{\partial}{\partial x_1}f(\mathbf{x}) \hat{i} +
+    \frac{\partial}{\partial x_2}f(\mathbf{x}) \hat{j} &,g(\mathbf{x}) \leq 0 \\
   \end{cases} \\
   & =
   \begin{cases}
-    ((2\mu + 2)x_1 - 2) \hat{i} + (2(\mu + 2)x_2 - 8) \hat{j} &,g(\mathbf{x}) > 0 \\
-    (2 (x_1 - 1)) \hat{i} + (2 (x_2 - 4)) \hat{j} &,g(\mathbf{x}) \leq 0
+    \mu ((4 x_1^3 + x_1 (4 x_2^2-4))+2 x_1-2) \hat{i} + \\
+    \hspace{1em} \mu ((4 x_1^2 x_2+x_2 (4 x_2^2-4))+4 x_2-8) \hat{j} &,\vspace{0.5em}g(\mathbf{x}) > 0 \\
+    (2 (x_1 - 1)) \hat{i} + (4 (x_2 - 2)) \hat{j} &,g(\mathbf{x}) \leq 0
   \end{cases}
 \end{align*}
+
+\subsubsection{}
+\begin{align*}
+  Min[f(\mathbf{x})] \Rightarrow \nabla f(\mathbf{x}) = 0 \Rightarrow
+  (2 (x_1 - 1)) \hat{i} + (4 (x_2 - 2)) \hat{j} = 0 \\`
+  \Rightarrow
+  \begin{cases}
+    x_1 = 1 \\
+    x_2 = 2
+  \end{cases}
+\end{align*}
+Since we only get one solution we know that this is the global maximum or
+minimum. Comparing with any other point gives that it is a minimum with the
+value $0$.
+
+\subsubsection{}
+See enclosed files
+
+\subsubsection{}
+Here are the results of some different values of $\mu$.
+\begin{tabular}{c | c | c}
+  $\mu$ & $x_1^*$ & $x_2^*$ \\
+  \hline
+  1    & 0.434 & 1.210 \\
+  10   & 0.331 & 0.996 \\
+  100  & 0.314 & 0.955 \\
+  1000 & 0.312 & 0.951
+\end{tabular}
 
 \subsection{}
 \subsubsection{}
 
-First we take calculate the partial derivatives of the function.
+First we calculate the partial derivatives of the function.
 
 \begin{align*}
   \begin{cases}
@@ -56,7 +85,7 @@ Setting both to $0$ and solving gives us a stationary point of:
     8 (x_1 - x_2)     = 0 \\
     - x_1 + 8 x_2 - 6 = 0
   \end{cases}
-  \Rightarrow f\left(\frac{3}{31}, \frac{24}{31} \right) = -2.2851
+  \Rightarrow f\left(\frac{2}{21}, \frac{16}{21} \right) \approx -2.2948
 \end{align*}
 Next we try the three edges where $x_2 = 1$ , $ x_1 = 0$ and $ x_1 = x_2$.
 
@@ -64,13 +93,13 @@ Next we try the three edges where $x_2 = 1$ , $ x_1 = 0$ and $ x_1 = x_2$.
   \begin{cases}
     f'(x_1, 1)   &= 8 (x_1 - 1) \\
     f'(0, x_2)   &= 8 x_2 - 6 \\
-    f'(x_1, x_1) &= 7 x^2 - 6x
+    f'(x_1, x_1) &= 7 x_1^2 - 6x_1
   \end{cases}
   \Rightarrow
   \begin{cases}
     8 (x_1 - 1) &= 0 \\
     8 x_2 - 6   &= 0 \\
-    7 x^2 - 6x  &= 0
+    7 x_1^2 - 6x_1  &= 0
   \end{cases}
   \Rightarrow
   \begin{cases}
@@ -88,14 +117,14 @@ Finally we have to test the three corners.
     f(1,1) &= -2
   \end{cases}
 \end{align*}
-We're looking for a minimum so the answer is the point $\left(\frac{3}{31}, \frac{24}{31} \right)$.
+We're looking for a minimum so the answer is the point $\left(\frac{2}{21}, \frac{16}{21} \right)$.
 
 \subsubsection{}
 
 \begin{align*}
   \begin{cases}
     f(\mathbf{x}) &= 15 + 2x_1  3y \\
-    h(\mathbf{x}) &= x_1^2 + x_1y_2 + y_2^2 - 21 = 0
+    h(\mathbf{x}) &= x_1^2 + x_1x_2 + x_2^2 - 21 = 0
   \end{cases}
   \Rightarrow
   L(\mathbf{x}, \lambda) = f(\mathbf{x}) + \lambda h(\mathbf{x})
@@ -117,11 +146,68 @@ We calculate the partial derviatives of $L$ and set them to $0$ to get the solut
 The point $(-1, -4)$ gives us the minimum of $1$.
 
 \subsection{}
-\subsubsection{}
+\subsubsection*{1.3.a}
 
 See enclosed files.
 
-\subsubsection{}
+\subsubsection*{1.3.b}
+
+The standard parameters that was used (unless specified) are as follows: \\
+\begin{tabular}{l | c}
+  populationSize                & 100\\
+  numberOfGenes                 & 50\\
+  crossoverProbability          & 0.8\\
+  mutationProbability           & 0.025\\
+  tournamentSize                & 2\\
+  tournamentSelectionParamenter & 0.75\\
+  numberOfGenerations           & 100\\
+\end{tabular}\\\\
+Which resulted in both an average fitness and a standard deviation of 0.3333.
+
+\emph{Note: when changing the population size the number of generations was changed correspondingly to have the same total number of generated individuals.}\\\\
+\begin{tabular}{c | c | c}
+  Population size & Average fitness & Standard Deviation\\
+  \hline
+  10 & 0.1989 & 0.1548\\
+  50 & 0.3172 & 0.0702\\
+  100 & 0.3333 & $1.5203\cdot10^{-5}$\\
+  500 & 0.3161 & 0.0209\\
+  1000 & 0.2846 & 0.0491\\
+  \hline
+  Crossover probability & Average fitness & Standard Deviation\\
+  \hline
+  0.2 & 0.3333 & $2.4346\cdot10^{-4}$\\
+  0.4 & 0.3333 & $9.9167\cdot10^{-5}$\\
+  0.6 & 0.3332 & $3.4182\cdot10^{-4}$\\
+  0.8 & 0.3332 & $3.4104\cdot10^{-4}$\\
+  1.0 & 0.3332 & $2.0860\cdot10^{-4}$\\
+  \hline
+  Mutation probability & Average fitness & Standard Deviation\\
+  \hline
+  0.0 & 0.1767 & 0.1151\\
+  0.01 & 0.3120 & 0.0687\\
+  0.025 & 0.3330 & 0.0014\\
+  0.4 & 0.2472 & 0.0498\\
+  0.8 & 0.2737 & 0.0473\\
+  \hline
+  Tournament size & Average fitness & Standard Deviation\\
+  \hline
+  1 & 0.3075 & 0.0511\\
+  2 & 0.3332 & $1.9973\cdot10^{-4}$\\
+  3 & 0.3276 & 0.0251\\
+  5 & 0.3094 & 0.0570\\
+  10 & 0.2843 & 0.0963\\
+  \hline
+  Tournament selection parameter & Average fitness & Standard Deviation\\
+  \hline
+  0.5 & 0.3213 & 0.0264\\
+  0.6 & 0.3301 & 0.0044\\
+  0.75 & 0.3333 & $4.6042\cdot10^{-5}$\\
+  0.8 & 0.3333 & $3.5318\cdot10^{-5}$\\
+  0.9 & 0.3333 & $4.5816\cdot10^{-6}$\\
+\end{tabular}\\\\
+
+\subsubsection*{1.3.c}
 
 
 
