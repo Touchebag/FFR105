@@ -17,7 +17,7 @@ function variables = DecodeChromosome(chromosome, numberOfVariables, variableRan
   variables = zeros(numberOfVariables, 1);
 
   for i = 1:numberOfVariables
-    offset = ((i - 1) * variableLength)
+    offset = ((i - 1) * variableLength);
 
     for j = 1:variableLength
       var = var + chromosome(offset + j) * 2^(-j);

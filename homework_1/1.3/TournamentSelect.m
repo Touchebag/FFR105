@@ -1,19 +1,15 @@
 % Selects an individual using tournament selection
-function index = TournamentSelection(population, selectionParamater, size)
+function index = TournamentSelect(fitness, selectionParamater, size)
 
-  popSize         = length(population);
-  tempPopulation  = population;
+  popSize         = length(fitness);
   selected        = [];
 
   % Randomly select individuals
   for i = 1:size
     r = randi([1 popSize]);
 
-    individual = population(r:end);
-    fitness = EvaluateIndividual(individual);
-
     % Save induvidual and index
-    temp     = [fitness r];
+    temp     = [fitness(r) r];
     selected = [selected; temp];
   end
 
