@@ -1,23 +1,33 @@
 % Searches for the minimum of a function using a genetic algorithm
-function population = FunctionOptimization
 
-  populationSize                = 30;
-  numberOfGenes                 = 40;
+  populationSize                = 100;
+  numberOfGenes                 = 50;
   crossoverProbability          = 0.8;
   mutationProbability           = 0.025;
   tournamentSelectionParamenter = 0.75;
-  variableRange                 = 3.0;
+  variableRange                 = 5.0;
   numberOfGenerations           = 100;
   fitness                       = zeros(populationSize, 1);
 
   % Graphics
-  fitnessFigureHandle = figure;
+  surfaceFigureHandle = figure;
   hold on;
-  set(fitnessFigureHandle, 'Position', [50, 50, 500, 200]);
-  set(fitnessFigureHandle, 'DoubleBuffer', 'on');
-  axis([1 numberOfGenerations 2.5 3]);
-  bestPlotHandle = plot(1:numberOfGenerations, zeros(1, numberOfGenerations));
-  textHandle = text(30, 2.6, sprintf('best: %4.3f', 0.0));
+  set(surfaceFigureHandle, 'DoubleBuffer', 'on');
+  delta = 0.1;
+  limit = fix(2 * variableRange/delta) + 1;
+  [xValues, yValues] = meshgrid(-variableRange:delta:variableRange, -variableRange:delta:variableRange);
+  zValues = zeros(limit, limit);
+  for j = 1:limit
+    for k = 1:limit
+      zValues(j, k) = EvaluateIndividual([xValues(j, k) yValues(j, k)]);
+    end
+  end
+  surfl(xValues, yValues, zValues)
+  colormap gray;
+  shading interp;
+  view([-7 -9 10]);
+  decodedPopulation = zeros(populationSize, 2);
+  populationPlotHandle = plot3(decodedPopulation(:,1), decodedPopulation(:,2), fitness(:), 'kp');
   hold off;
   drawnow;
 
@@ -26,18 +36,17 @@ function population = FunctionOptimization
   for iGeneration = 1:numberOfGenerations
 
     maximumFitness = 0.0;
-    xBest = zeros(1,2);
     bestIndividualIndex = 0;
 
     for i = 1:populationSize
       chromosome = population(i,:);
       x = DecodeChromosome(chromosome, 2, variableRange);
       fitness(i) = EvaluateIndividual(x);
+      decodedPopulation(i,:) = x;
 
       if fitness(i) > maximumFitness
         maximumFitness = fitness(i);
         bestIndividualIndex = i;
-        xBest = x;
       end
     end
 
@@ -63,12 +72,15 @@ function population = FunctionOptimization
     for i = 1:populationSize
       originalChromosome = tempPopulation(i,:);
       mutatedChromosome = Mutate(originalChromosome, mutationProbability);
-      tempPopulation(i,:); mutatedChromosome;
+      tempPopulation(i,:) = mutatedChromosome;
     end
 
-    tempPopulation = insertBestIndividual(population, bestIndividualIndex, 1);
-    population = tempPopulation;
+    bestIndividual = population(bestIndividualIndex,:);
+    tempPopulation = InsertBestIndividual(tempPopulation, bestIndividual, 1);
+    population     = tempPopulation;
+
+    set(populationPlotHandle, 'XData', decodedPopulation(:,1), 'YData', decodedPopulation(:,2), 'ZData', fitness(:));
+    drawnow;
   end
 
-end
 
