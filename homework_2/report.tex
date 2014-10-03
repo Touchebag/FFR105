@@ -1,0 +1,24 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{mathtools}
+
+\pagestyle{fancy}
+
+\lhead{Robin Touche 900610-3270}
+\rhead{robint@student.chalmers.se}
+
+\begin{document}
+\section*{Home problem 2}
+
+\setcounter{section}{2}
+\subsection{}
+\subsubsection*{a}
+
+The total number of permutations is $N!$. To remove shifted version we have to
+divide this number by $N$ since each cycle can start at any of the $N$ cities.
+Then we need to further divide by $2$ to remove mirrored paths as well.
+
+The final answer is thus $\frac{N!}{2N}$.
+
+\end{document}
