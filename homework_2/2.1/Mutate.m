@@ -1,4 +1,4 @@
-% Takes a chromosome and a mutatino probability and returns a mutated chromosome
+% Takes a chromosome and a mutation probability and returns a mutated chromosome
 function newChromosome = Mutate(chromosome, mutationProbability)
 
   newChromosome = chromosome;
@@ -8,7 +8,9 @@ function newChromosome = Mutate(chromosome, mutationProbability)
     r = rand;
 
     if r < mutationProbability
-      newChromosome(i) = 1 - chromosome(i);
+      r = randi([1 chromLength]);
+      newChromosome(i) = chromosome(r);
+      newChromosome(r) = chromosome(i);
     end
   end
 
