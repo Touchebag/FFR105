@@ -15,9 +15,10 @@
   population = InitializePopulation(populationSize, numberOfGenes);
   cityMatrix = LoadCityLocations;
 
+  bestFitness = 0.0;
+
   for iGeneration = 1:numberOfGenerations
 
-    bestFitness         = intmax;
     bestIndividualIndex = 0;
 
     for i = 1:populationSize
@@ -52,5 +53,5 @@
 
   end
 
-disp(['Shortest path found: ' num2str(bestFitness)]);
+disp(['Shortest path found: ' num2str(1 / bestFitness)]);
 
