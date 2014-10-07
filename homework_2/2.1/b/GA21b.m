@@ -1,16 +1,15 @@
 % Searches for the minimum of a function using a genetic algorithm
 
-  addpath("./TSPgraphics");
+  cityLocation = LoadCityLocations;
   tspFigure = InitializeTspPlot(cityLocation,[0 20 0 20]);
   connection = InitializeConnections(cityLocation);
-  PlotPath(connection,cityLocation,path);
 
-  populationSize                = 100;
+  populationSize                = 50;
   numberOfGenes                 = 50;
   mutationProbability           = 0.025;
   tournamentSize                = 2;
   tournamentSelectionParamenter = 0.75;
-  numberOfGenerations           = 100;
+  numberOfGenerations           = 200;
   fitness                       = zeros(1,populationSize);
 
   population = InitializePopulation(populationSize, numberOfGenes);
@@ -52,4 +51,6 @@
     PlotPath(connection,cityLocation,bestIndividual);
 
   end
+
+disp(['Shortest path found: ' num2str(bestFitness)]);
 
