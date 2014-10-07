@@ -1,7 +1,6 @@
 % Takes a chromosome and a mutation probability and returns a mutated chromosome
 function newChromosome = Mutate(chromosome, mutationProbability)
 
-  newChromosome = chromosome;
   chromLength   = length(chromosome);
 
   for i = 1:chromLength
@@ -9,11 +8,12 @@ function newChromosome = Mutate(chromosome, mutationProbability)
 
     %TODO allow swapping with iteslf?
     if r < mutationProbability
-      r = randi([1 chromLength]);
-      newChromosome(i) = chromosome(r);
-      newChromosome(r) = chromosome(i);
+      r = randi(chromLength);
+      chromosome([i r]) = chromosome([r i]);
     end
   end
+
+  newChromosome = chromosome;
 
 end
 
