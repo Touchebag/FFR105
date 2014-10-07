@@ -24,6 +24,7 @@ function fitness = EvaluatePath(path, cityMatrix)
   dist  = sqrt(xDiff^2 + yDiff^2);
 
   fitness = fitness + dist;
+  fitness = 1 / fitness;
 
 end
 

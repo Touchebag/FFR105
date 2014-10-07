@@ -25,7 +25,7 @@
       chromosome = population(i,:);
       fitness(i) = EvaluatePath(chromosome, cityMatrix);
 
-      if fitness(i) < bestFitness
+      if fitness(i) > bestFitness
         bestFitness = fitness(i);
         bestIndividualIndex = i;
       end
