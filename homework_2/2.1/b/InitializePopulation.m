@@ -1,4 +1,4 @@
-% Generates a matrix of a populations with randomized binary chromosomes
+% Generates a matrix of a populations with randomized paths
 function population = InitializePopulation(populationSize, numberOfGenes)
 
   % Create matrix
