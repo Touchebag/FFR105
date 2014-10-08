@@ -6,7 +6,6 @@ function newChromosome = Mutate(chromosome, mutationProbability)
   for i = 1:chromLength
     r = rand;
 
-    %TODO allow swapping with iteslf?
     if r < mutationProbability
       r = randi(chromLength);
       chromosome([i r]) = chromosome([r i]);

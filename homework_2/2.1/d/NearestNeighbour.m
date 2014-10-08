@@ -1,4 +1,4 @@
-% Generates a matrix of a populations with randomized binary chromosomes
+% Generates a matrix of nearest neighbour paths
 function population = NearestNeighbour(populationSize, numberOfGenes, distanceMatrix)
 
   % Create matrix
@@ -19,6 +19,7 @@ function population = NearestNeighbour(populationSize, numberOfGenes, distanceMa
     for j = 1:citiesLeft
       currentCity = unvisited(j);
 
+      % Find nearest neighbour
       if distanceMatrix(previousCity,currentCity) < shortestDistance
         nearestNeighbourIndex = j;
         nearestNeighbour = currentCity;
@@ -26,6 +27,7 @@ function population = NearestNeighbour(populationSize, numberOfGenes, distanceMa
       end
     end
 
+    % Add nearest neighbour to path and remove from unvisisted
     nearestNeighbourPath(i + 1)      = nearestNeighbour;
     unvisited(nearestNeighbourIndex) = [];
     previousCity                     = nearestNeighbour;
@@ -33,7 +35,10 @@ function population = NearestNeighbour(populationSize, numberOfGenes, distanceMa
   end
 
   for i = 1:populationSize
-      population(i,:) = nearestNeighbourPath(i);
+    % Slightly randomise the path
+    mutatedPath = Mutate(nearestNeighbourPath, 3.5 / numberOfGenes);
+
+    population(i,:) = mutatedPath(1,:);
   end
 
 end

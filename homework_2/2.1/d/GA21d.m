@@ -11,7 +11,7 @@
   mutationProbability           = 0.025;
   tournamentSize                = 2;
   tournamentSelectionParamenter = 0.75;
-  numberOfGenerations           = 2000;
+  numberOfGenerations           = 200;
   fitness                       = zeros(1,populationSize);
 
   cityMatrix     = LoadCityLocations;
@@ -39,7 +39,6 @@
     % Calculate fitness
     for i = 1:populationSize
       chromosome = population(i,:);
-      distanceMatrix
       fitness(i) = EvaluatePath(chromosome, cityMatrix, distanceMatrix);
 
       if fitness(i) > bestFitness
