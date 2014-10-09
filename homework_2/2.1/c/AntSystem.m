@@ -6,6 +6,8 @@
 
 clear all;
 clc;
+% TODO For testing
+addpath('../TSPgraphics/');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Data
@@ -13,10 +15,8 @@ clc;
 cityLocation = LoadCityLocations();
 numberOfCities = length(cityLocation);
 
-% {{{TODO For testing
-addpath('../TSPgraphics/');
+% {{{TODO Pre-calculate distances allowed?
 global distanceMatrix = zeros(numberOfCities);
-% Pre-calculate distances
 for i = 1:numberOfCities
   for j = 1:numberOfCities
     xDiff = abs(cityLocation(i, 1) - cityLocation(j, 1));
@@ -36,8 +36,7 @@ alpha = 1.0;        % TODO: Set to appropriate value.
 beta = 5.0;         % TODO: Set to appropriate value.
 rho = 0.5;          % TODO: set to appropriate value.
 
-% TODO: Write the GetNearestNeighbourPathLength function
-nearestNeighbourPathLength = GetNearestNeighbourPathLength(cityLocation); % TODO: Write the GetNearestNeighbourPathLength function
+nearestNeighbourPathLength = GetNearestNeighbourPathLength(cityLocation);
 tau0 = numberOfAnts/nearestNeighbourPathLength;
 
 targetPathLength = 123.0;
@@ -49,7 +48,7 @@ targetPathLength = 123.0;
 range = [0 20 0 20];
 tspFigure = InitializeTspPlot(cityLocation, range);
 connection = InitializeConnections(cityLocation);
-pheromoneLevel = InitializePheromoneLevels(numberOfCities, tau0); % TODO: Write the InitializePheromoneLevels
+pheromoneLevel = InitializePheromoneLevels(numberOfCities, tau0);
 visibility = GetVisibility(cityLocation);                         % TODO: write the GetVisibility function
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
