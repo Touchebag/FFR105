@@ -13,6 +13,21 @@ clc;
 cityLocation = LoadCityLocations();
 numberOfCities = length(cityLocation);
 
+% {{{TODO For testing
+addpath('../TSPgraphics/');
+global distanceMatrix = zeros(numberOfCities);
+% Pre-calculate distances
+for i = 1:numberOfCities
+  for j = 1:numberOfCities
+    xDiff = abs(cityLocation(i, 1) - cityLocation(j, 1));
+    yDiff = abs(cityLocation(i, 2) - cityLocation(j, 2));
+    dist  = sqrt(xDiff^2 + yDiff^2);
+
+    distanceMatrix(i, j) = dist;
+  end
+end
+%}}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Parameters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -22,8 +37,8 @@ beta = 5.0;         % TODO: Set to appropriate value.
 rho = 0.5;          % TODO: set to appropriate value.
 
 % TODO: Write the GetNearestNeighbourPathLength function
-% nearestNeighbourPathLength = GetNearestNeighbourPathLength(cityLocation); % TODO: Write the GetNearestNeighbourPathLength function
-% tau0 = numberOfAnts/nearestNeighbourPathLength;
+nearestNeighbourPathLength = GetNearestNeighbourPathLength(cityLocation); % TODO: Write the GetNearestNeighbourPathLength function
+tau0 = numberOfAnts/nearestNeighbourPathLength;
 
 targetPathLength = 123.0;
 

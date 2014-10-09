@@ -14,6 +14,7 @@
   numberOfGenerations           = 200;
   fitness                       = zeros(1,populationSize);
 
+  % TODO number of genes, not popsize
   cityMatrix     = LoadCityLocations;
   distanceMatrix = zeros(populationSize);
 
