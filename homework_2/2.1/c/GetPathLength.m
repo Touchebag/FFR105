@@ -1,5 +1,5 @@
 % Calculates the length of a path
-function pathLength = EvaluatePath(path, cityMatrix)
+function pathLength = GetPathLength(path, cityMatrix)
 
   global distanceMatrix;
 
