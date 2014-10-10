@@ -15,7 +15,7 @@ addpath('../TSPgraphics/');
 cityLocation = LoadCityLocations();
 numberOfCities = length(cityLocation);
 
-% {{{TODO Pre-calculate distances allowed?
+% Pre-calculate distances for speed up
 global distanceMatrix = zeros(numberOfCities);
 for i = 1:numberOfCities
   for j = 1:numberOfCities
@@ -26,7 +26,6 @@ for i = 1:numberOfCities
     distanceMatrix(i, j) = dist;
   end
 end
-%}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Parameters
@@ -49,7 +48,7 @@ range = [0 20 0 20];
 tspFigure = InitializeTspPlot(cityLocation, range);
 connection = InitializeConnections(cityLocation);
 pheromoneLevel = InitializePheromoneLevels(numberOfCities, tau0);
-visibility = GetVisibility(cityLocation);                         % TODO: write the GetVisibility function
+visibility = GetVisibility(cityLocation);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Main loop
@@ -69,7 +68,7 @@ while (minimumPathLength > targetPathLength)
  pathLengthCollection = [];
  for k = 1:numberOfAnts
   path = GeneratePath(pheromoneLevel, visibility, alpha, beta);   % TODO: Write the GeneratePath function (and any necessary functions called by GeneratePath).
-  pathLength = GetPathLength(path,cityLocation);                  % TODO: Write the GetPathLength function
+  pathLength = GetPathLength(path,cityLocation);
   if (pathLength < minimumPathLength)
     minimumPathLength = pathLength;
     disp(sprintf('Iteration %d, ant %d: path length = %.5f',iIteration,k,minimumPathLength));
@@ -83,14 +82,8 @@ while (minimumPathLength > targetPathLength)
  % Update pheromone levels
  %%%%%%%%%%%%%%%%%%%%%%%%%%
 
- deltaPheromoneLevel = ComputeDeltaPheromoneLevels(pathCollection,pathLengthCollection);  % TODO: write the ComputeDeltaPheromoneLevels function
- pheromoneLevel = UpdatePheromoneLevels(pheromoneLevel,deltaPheromoneLevel,rho);          % TODO: write the UpdatePheromoneLevels function
+ deltaPheromoneLevel = ComputeDeltaPheromoneLevels(pathCollection,pathLengthCollection);
+ pheromoneLevel = UpdatePheromoneLevels(pheromoneLevel,deltaPheromoneLevel,rho);
 
 end
-
-
-
-
-
-
 
