@@ -1,3 +1,4 @@
+% Returns the length of a nearest neighbour path
 function pathLength = GetNearestNeighbourPathLength(cityLocation)
 
   global distanceMatrix;
