@@ -16,7 +16,8 @@ cityLocation = LoadCityLocations();
 numberOfCities = length(cityLocation);
 
 % Pre-calculate distances for speed up
-global distanceMatrix = zeros(numberOfCities);
+global distanceMatrix;
+distanceMatrix = zeros(numberOfCities);
 for i = 1:numberOfCities
   for j = 1:numberOfCities
     xDiff = abs(cityLocation(i, 1) - cityLocation(j, 1));
@@ -67,7 +68,7 @@ while (minimumPathLength > targetPathLength)
  pathCollection = [];
  pathLengthCollection = [];
  for k = 1:numberOfAnts
-  path = GeneratePath(pheromoneLevel, visibility, alpha, beta);   % TODO: Write the GeneratePath function (and any necessary functions called by GeneratePath).
+  path = GeneratePath(pheromoneLevel, visibility, alpha, beta);
   pathLength = GetPathLength(path,cityLocation);
   if (pathLength < minimumPathLength)
     minimumPathLength = pathLength;
@@ -86,4 +87,5 @@ while (minimumPathLength > targetPathLength)
  pheromoneLevel = UpdatePheromoneLevels(pheromoneLevel,deltaPheromoneLevel,rho);
 
 end
+
 

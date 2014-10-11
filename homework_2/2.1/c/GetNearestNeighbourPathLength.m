@@ -4,7 +4,7 @@ function pathLength = GetNearestNeighbourPathLength(cityLocation)
   global distanceMatrix;
 
   % Create matrix
-  numberOfCities       = size(cityLocation, 1)
+  numberOfCities       = size(cityLocation, 1);
   unvisited            = [1:numberOfCities];
   nearestNeighbourPath = zeros(1, numberOfCities);
 
@@ -36,7 +36,7 @@ function pathLength = GetNearestNeighbourPathLength(cityLocation)
 
   end
 
-  pathLength = GetPathLength(nearestNeighbourPath, cityLocation)
+  pathLength = GetPathLength(nearestNeighbourPath, cityLocation);
 
 end
 

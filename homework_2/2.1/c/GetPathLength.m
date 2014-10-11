@@ -21,7 +21,7 @@ function pathLength = GetPathLength(path, cityMatrix)
 
   dist = distanceMatrix(city1, city2);
 
-  pathLength = pathLength + dist
+  pathLength = pathLength + dist;
 
 end
 
