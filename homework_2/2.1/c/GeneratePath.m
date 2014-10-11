@@ -9,7 +9,7 @@ function path = GeneratePath(pheromoneLevel, visibility, alpha, beta)
 
   for j = 1:(size - 1)
     numberOfNodes = length(availableNodes);
-    probabilities = zeros(numberOfNodes);
+    probabilities = zeros(numberOfNodes, 1);
 
     denominator = 0;
     for l = 1:numberOfNodes
