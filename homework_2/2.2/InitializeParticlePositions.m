@@ -1,6 +1,6 @@
 % Creates a matrix of particles with positions
-function particles =
-  InitializeParticleParticles(numberOfParticles, numberOfVariables, xmin, xmax)
+function positions = ...
+  InitializeParticlePositions(numberOfParticles, numberOfVariables, xmin, xmax)
 
   particles = zeros(numberOfParticles, numberOfVariables);
 
