@@ -6,8 +6,6 @@
 
 clear all;
 clc;
-% TODO For testing
-addpath('../TSPgraphics/');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Data
@@ -31,10 +29,10 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Parameters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-numberOfAnts = 20;  % TODO: Set to appropriate value.
-alpha = 1.0;        % TODO: Set to appropriate value.
-beta = 5.0;         % TODO: Set to appropriate value.
-rho = 0.5;          % TODO: set to appropriate value.
+numberOfAnts = 20;
+alpha = 1.0;
+beta = 5.0;
+rho = 0.5;
 
 nearestNeighbourPathLength = GetNearestNeighbourPathLength(cityLocation);
 tau0 = numberOfAnts/nearestNeighbourPathLength;
