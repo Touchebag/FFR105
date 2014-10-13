@@ -17,7 +17,7 @@
     InitializeParticleVelocities(numberOfParticles, numberOfVariables, xmin, xmax);
 
   globalBest   = intmax;
-  particleBest = ones(numberOfParticles, 1) .* intmax;
+  particleBest = ones(numberOfParticles, 1) * inf;
   particleBestPosition = zeros(numberOfParticles, numberOfVariables);
 
   for k = 1:numberOfIterations
@@ -60,6 +60,6 @@
     inertia = inertia * beta;
   end
 
-  fprintf('Best value found: f(%f, %f) = %f \n', ...
-    bestPosition(1), bestPosition(2), globalBest);
+  fprintf('Best value found: f(%i, %i, %i, %i, %i) = %i \n', ...
+    bestPosition(1), bestPosition(2), bestPosition(3), bestPosition(4), bestPosition(5), globalBest);
 
