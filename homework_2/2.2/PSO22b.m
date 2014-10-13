@@ -8,7 +8,7 @@
   vmax               = xmax - xmin;
   inertia            = 1.4;
   beta               = 0.998;
-  numberOfIterations = 1000;
+  numberOfIterations = 10000;
 
   % Initialise particles
   swarmPositions  = ...
