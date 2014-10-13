@@ -7,7 +7,7 @@ function population = ...
   totalRegisters = numberOfCRegisters + numberOfVRegisters;
 
   for i = 1:populationSize
-    chromLength = randi(minChromLength, maxChromLength);
+    chromLength = randi([minChromLength maxChromLength]);
 
     for j = 1:chromLength
       index = (j - 1) * 4 + 1;
