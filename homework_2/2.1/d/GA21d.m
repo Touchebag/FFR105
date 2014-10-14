@@ -11,7 +11,7 @@
   mutationProbability           = 0.025;
   tournamentSize                = 2;
   tournamentSelectionParamenter = 0.75;
-  numberOfGenerations           = 200;
+  numberOfGenerations           = 2000;
   fitness                       = zeros(1,populationSize);
 
   % TODO number of genes, not popsize

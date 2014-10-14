@@ -75,6 +75,7 @@
   xPlot = inputs(:,1);
   y1Plot = inputs(:,2);
   y2Plot = bestValues;
+  disp('Best program: ');
   TranslateProgram(bestIndividual, numberOfVariableRegisters, constantRegisters)
 
   plot(xPlot, y1Plot, xPlot, y2Plot)

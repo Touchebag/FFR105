@@ -23,15 +23,15 @@ The final answer is thus $\frac{N!}{2N}$.
 
 \subsubsection*{b,c,d}
 
-Note that to be able to run any of the srcipts TSPgraphics needs to be added to
-the path. Also, \emph{b} and \emph{d} have many conflicting names so make sure
-to not load them at the same time.
+Note that to be able to run any of the srcipts, the folder TSPgraphics needs to
+be added to the path. Also, \emph{b} and \emph{d} have many conflicting names
+so make sure to not load them at the same time.
 
 Also of note is that I pre-calculate the distances between all cities and pass
 that matrix around (in the function arguments in \emph{b,d} and by a global
 matrix, unfortunately, in \emph{d}) to avoid having to re-calculate them every
 step of the way.  This gave a speedup of up to 10x on some of the systems I
-tested.
+tested. (I asked Mattias about this and he gave me permission to use it.)
 
 The shortest path length for each algorithm can be seen in the table below. The
 parameters used in these cases have been left in the code file.
@@ -39,35 +39,46 @@ parameters used in these cases have been left in the code file.
 \begin{center}
   \begin{tabular}{| c | c |}
     \hline
-    GA & value \\
+    GA & 178.5903 \\
     \hline
-    GA(NN) & value \\
+    GA(NN) & 132.2687 \\
     \hline
-    ACO & value\\
+    ACO & 121.10525 \\
     \hline
   \end{tabular}
 \end{center}
 
+The ACO code does not terminate until it finds a solution $< 123$ length units
+so just the value is not really telling the whole story. The algorithm usually
+terminates at around $300$ iterations but I have had runs everuwhere from 17 to
+$1100$ iterations so it can vary. The value in the table took $353$ iterations.
+
 \subsection{}
 
 Both problems share most of the code. The only differences is in the main files
-(PSO22) and the evaluation.
+(PSO22x) and the evaluation.
 
 \subsubsection*{a}
 
-The minimum found by the algorithm is f(5,4) = 1. This algorithm is fairly fast
-so 10000 iterations does not take much time. It gives fairly accurate results
-with as few as 300 iterations.
+The minimum found by the algorithm is $f(5,4) = 1$. This algorithm is fairly
+fast so $10000$ iterations does not take much time. It starts to converge
+towards accurate results with as few as $300$ iterations.
 
 \subsubsection*{b}
 
 The two minimums found are:
 \begin{align*}
-  f() &= -737 \\
-  f() &= -737
+  f(0, 12, 23, 17, 6) &= -737 \\
+  f(0, 11, 22, 16, 6) &= -737
 \end{align*}
 
-This function is not as lenient with the number of iterations as \emph{a} but
+This function is not as lenient with the number of iterations as \emph{2.2a} but
 $10000$ tends to find one of the minimums every time.
+
+\subsection{}
+Not implemented.
+
+\subsection{}
+
 
 \end{document}
