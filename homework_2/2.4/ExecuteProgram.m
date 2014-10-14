@@ -1,5 +1,5 @@
 function values = ...
-  DecodeChromosome(chromosome, numberOfVRegisters, constantRegisters, inputs)
+  ExecuteProgram(chromosome, numberOfVRegisters, constantRegisters, inputs)
 
   values               = zeros(1,length(inputs));
   chrom                = chromosome.Chromosome;
