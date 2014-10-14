@@ -27,7 +27,11 @@ function values = ...
         case 3 % multiplication
           registers(output) = registers(operand1) * registers(operand2);
         case 4 % division
-          registers(output) = registers(operand1) / registers(operand2);
+          if registers(operand2) == 0
+            registers(output) = intmax;
+          else
+            registers(output) = registers(operand1) / registers(operand2);
+          end
       end
 
     end
