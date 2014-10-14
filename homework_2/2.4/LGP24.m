@@ -1,16 +1,16 @@
 % Searches for the minimum of a function using a genetic algorithm
 
-  populationSize                = 50;
-  crossoverProbability          = 0.8;
-  mutationProbability           = 0.25;
-  tournamentSize                = 2;
+  populationSize                = 100;
+  crossoverProbability          = 0.4;
+  mutationProbability           = 0.05;
+  tournamentSize                = 4;
   tournamentSelectionParamenter = 0.75;
-  numberOfGenerations           = 20;
+  numberOfGenerations           = 1000;
   minChromLength                = 2;
   maxChromLength                = 10;
   fitness                       = zeros(populationSize, 1);
-  numberOfVariableRegisters     = 1;
-  constantRegisters             = [1 2 3 5 7 11];
+  numberOfVariableRegisters     = 3;
+  constantRegisters             = [1 2 3 5 8];
   numberOfConstantRegisters     = length(constantRegisters);
 
   inputs = LoadFunctionData;
@@ -28,9 +28,8 @@
 
     for i = 1:populationSize
       chromosome = population(i);
-      x = DecodeChromosome(chromosome, ...
-                           numberOfVariableRegisters, constantRegisters, ...
-                           inputs);
+      x = ExecuteProgram( ...
+        chromosome, numberOfVariableRegisters, constantRegisters, inputs);
       fitness(i) = EvaluateIndividual(x, inputs);
       decodedPopulation(i,:) = x;
 
@@ -75,7 +74,8 @@
 
   xPlot = inputs(:,1);
   y1Plot = inputs(:,2);
-  y2Plot = bestValues
+  y2Plot = bestValues;
+  TranslateProgram(bestIndividual, numberOfVariableRegisters, constantRegisters)
 
   plot(xPlot, y1Plot, xPlot, y2Plot)
 
