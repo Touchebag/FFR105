@@ -21,4 +21,53 @@ Then we need to further divide by $2$ to remove mirrored paths as well.
 
 The final answer is thus $\frac{N!}{2N}$.
 
+\subsubsection*{b,c,d}
+
+Note that to be able to run any of the srcipts TSPgraphics needs to be added to
+the path. Also, \emph{b} and \emph{d} have many conflicting names so make sure
+to not load them at the same time.
+
+Also of note is that I pre-calculate the distances between all cities and pass
+that matrix around (in the function arguments in \emph{b,d} and by a global
+matrix, unfortunately, in \emph{d}) to avoid having to re-calculate them every
+step of the way.  This gave a speedup of up to 10x on some of the systems I
+tested.
+
+The shortest path length for each algorithm can be seen in the table below. The
+parameters used in these cases have been left in the code file.
+
+\begin{center}
+  \begin{tabular}{| c | c |}
+    \hline
+    GA & value \\
+    \hline
+    GA(NN) & value \\
+    \hline
+    ACO & value\\
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsection{}
+
+Both problems share most of the code. The only differences is in the main files
+(PSO22) and the evaluation.
+
+\subsubsection*{a}
+
+The minimum found by the algorithm is f(5,4) = 1. This algorithm is fairly fast
+so 10000 iterations does not take much time. It gives fairly accurate results
+with as few as 300 iterations.
+
+\subsubsection*{b}
+
+The two minimums found are:
+\begin{align*}
+  f() &= -737 \\
+  f() &= -737
+\end{align*}
+
+This function is not as lenient with the number of iterations as \emph{a} but
+$10000$ tends to find one of the minimums every time.
+
 \end{document}
